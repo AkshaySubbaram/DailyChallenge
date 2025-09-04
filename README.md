@@ -1,5 +1,3 @@
-[//]: # (Problems Solved:-)
-
 This repository contains my daily problem-solving practice in Java
 
 - [x] Trapping Rain Water
