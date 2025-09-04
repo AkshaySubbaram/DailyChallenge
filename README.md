@@ -1,3 +1,6 @@
-Trap Rain Water
+[//]: # (Problems Solved:-)
 
-Maximum Product Subarray
+This repository contains my daily problem-solving practice in Java
+
+- [x] Trapping Rain Water
+- [x] Maximum Product Subarray

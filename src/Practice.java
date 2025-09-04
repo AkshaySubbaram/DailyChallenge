@@ -13,7 +13,7 @@ public class Practice {
 //        1<2 so l++
 //        3>2 so r-- ToDo: each time we should update the position
 
-    public static int trap(int[] height) {
+    private static int trap(int[] height) {
         int left = 0, right = height.length - 1;
         int leftMax = 0, rightMax = 0;
         int waterTrapped = 0;
@@ -41,7 +41,7 @@ public class Practice {
 //    ToDo: maximum product of element in given sub arr
 //    only adjecent elements no random pair
 
-    public static int maxProduct(int[] nums) {
+    private static int maxProduct(int[] nums) {
         int maxSoFar = nums[0];
         int minSoFar = nums[0];
         int result = nums[0];
