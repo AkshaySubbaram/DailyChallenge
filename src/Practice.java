@@ -57,12 +57,42 @@ public class Practice {
         return result;
     }
 
+//    ToDo: identify the first missing positive number from unsorted array
+//    Example: {3,1,-2,4} -> 2
+
+    private static void missingNumber() {
+        int[] input = {3, 1, -2, 4};
+        int n = input.length;
+
+        for (int i = 0; i < n; ) {
+            int correctIndex = input[i] - 1;
+            if (input[i] > 0 && input[i] <= n && input[i] != input[correctIndex]) {
+                int temp = input[i];
+                input[i] = input[correctIndex];
+                input[correctIndex] = temp;
+            } else {
+                i++;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (input[i] != i + 1) {
+                System.out.println("First missing positive: " + (i + 1));
+                return;
+            }
+        }
+        System.out.println("First missing positive: " + (n + 1));
+    }
+
+
     public static void main(String[] args){
         int[] heights = {0,1,0,2,1,0,1,3,2,1,2,1};
         System.out.println("Trapped water: " + trap(heights));
 
         int[] nums = {2, 3, -2, 4};
         System.out.println("Max Product: " + maxProduct(nums));
+
+        missingNumber();
     }
 
 
