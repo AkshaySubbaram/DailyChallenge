@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Practice {
 
@@ -178,7 +180,7 @@ public class Practice {
         }
         System.out.println("Target found: " + index);
 
-//        optimal solution as per leetcode standards
+//      optimal solution as per leetcode standards
         int left = 0;
         int right = arr.length - 1;
 
@@ -207,6 +209,61 @@ public class Practice {
         return -1;
     }
 
+//    ToDo: Multiplay the array element except ith element
+//    Example: {1, 2, 3, 4} -> {24, 12, 8, 6}
+
+    private static void arrayMultiplication(){
+        int[] input = {1, 2, 3, 4};
+        int[] result = new int[input.length];
+
+        for (int i = 0; i < input.length; i++) {
+            int prod = 1;
+            for (int j = 0; j < input.length; j++) {
+                if (i != j) {
+                    prod *= input[j];
+                }
+            }
+            result[i] = prod;
+        }
+
+        for (int value : result) {
+            System.out.print(value + " ");
+        }
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        int n = nums.length;
+
+        for (int i = 0; i < n - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            int left = i + 1;
+            int right = n - 1;
+
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+
+                if (sum == 0) {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+
+                    left++;
+                    right--;
+                } else if (sum < 0) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args){
 //        int[] heights = {0,1,0,2,1,0,1,3,2,1,2,1};
 //        System.out.println("Trapped water: " + trap(heights));
@@ -226,10 +283,14 @@ public class Practice {
 //        int[] arr = {100, 4, 200, 1, 3, 2};
 //        longestSeq(arr);
 
-        int[] arr = {4,5,6,7,0,1,2};
-        int target = 0;
-        rotatedArraySearch(arr, target);
+//        int[] arr = {4,5,6,7,0,1,2};
+//        int target = 0;
+//        rotatedArraySearch(arr, target);
 
+//        arrayMultiplication();
+
+        int[] arr = {-1, 0, 1, 2, -1, -4};
+        System.out.println(threeSum(arr));
     }
 
 
